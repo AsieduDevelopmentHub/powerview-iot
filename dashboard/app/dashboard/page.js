@@ -1,16 +1,22 @@
-export default function Dashboard() {
+async function getData() {
+  const res = await fetch("http://localhost:8000/");
+  return res.json();
+}
+
+export default async function DashboardPage() {
+  const data = await getData();
+
   return (
     <div style={{ padding: 30 }}>
-      <h2>Live Energy Overview</h2>
+      <h1>PowerView Dashboard</h1>
+      <p>{data.message}</p>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 20 }}>
-        <div>Voltage: 220V</div>
-        <div>Current: 1.5A</div>
-        <div>Power: 330W</div>
+      <div>
+        <h2>Live Test Values</h2>
+        <p>Voltage: 220V</p>
+        <p>Current: 1.5A</p>
+        <p>Power: 330W</p>
       </div>
-
-      <h3>Estimated Cost</h3>
-      <p>GH₵ 12.45 (Today)</p>
     </div>
   );
 }
