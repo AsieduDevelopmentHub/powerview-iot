@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+pydantic
+python-dotenv
+
+# async DB (Supabase/Postgres support)
+asyncpg
+sqlalchemy
+
+# background jobs
+celery
+redis
+
+# HTTP requests (ESP32 communication support)
+httpx
